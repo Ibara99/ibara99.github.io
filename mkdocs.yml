@@ -1,0 +1,6 @@
+site_name: Ibara99 Doc
+nav:
+  - Home: index.md
+  - Web Mining: Simple Web Crawler.md
+  - About Me: about.md
+  
