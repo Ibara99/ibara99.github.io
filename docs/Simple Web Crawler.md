@@ -557,10 +557,9 @@ Parameter yang digunakan di antaranya, Jumlah Cluster = 2, Threshold = 0.85, dan
 
 | Metode        | Shilhouette Coefisient |
 | ------------- | ---------------------- |
-| Fuzzy C-Means |                        |
-| K-Means       |                        |
+| Fuzzy C-Means | 0.342                  |
+| K-Means       | 0.430                  |
 
 ## Kesimpulan
 
-Dari hasil percobaan di atas, dapat disimpulkan bahwa metode yang terbaik adalah HERE, dengan parameter, n-gram=1, jumlah cluster=2, dan nilai Treshold=0.85.
-
+Dari hasil percobaan di atas, dapat disimpulkan bahwa metode yang terbaik adalah K-Means, dengan parameter, n-gram=1, jumlah cluster=2, dan nilai Treshold=0.85.
