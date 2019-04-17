@@ -82,7 +82,6 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#simple-web-crawler">Simple Web Crawler</a></li>
-        <li class="main "><a href="#table-of-contents">Table of Contents</a></li>
         <li class="main "><a href="#pengantar">Pengantar</a></li>
         <li class="main "><a href="#environment">Environment</a></li>
         <li class="main "><a href="#teori-dan-penjelasan-program">Teori dan Penjelasan Program</a></li>
@@ -96,62 +95,13 @@
             <li><a href="#berdasarkan-nilai-threshold">Berdasarkan nilai Threshold</a></li>
             <li><a href="#berdasarkan-n-gram">Berdasarkan N-Gram</a></li>
             <li><a href="#k-means_1">K-Means</a></li>
-            <li><a href="#kesimpulan">Kesimpulan</a></li>
+        <li class="main "><a href="#kesimpulan">Kesimpulan</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h1 id="simple-web-crawler">Simple Web Crawler</h1>
 <p>​   <em>Program ini digunakan untuk mengekstrak data dari sebuah website</em></p>
-<h1 id="table-of-contents">Table of Contents</h1>
-<div class="toc">
-<ul>
-<li><a href="#simple-web-crawler">Simple Web Crawler</a></li>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#pengantar">Pengantar</a></li>
-<li><a href="#environment">Environment</a></li>
-<li><a href="#teori-dan-penjelasan-program">Teori dan Penjelasan Program</a><ul>
-<li><a href="#crawling">Crawling</a></li>
-<li><a href="#text-extraction">Text-Extraction</a><ul>
-<li><a href="#metode-bag-of-words">Metode Bag of Words</a></li>
-<li><a href="#tf-idf">TF-IDF</a></li>
-</ul>
-</li>
-<li><a href="#preprocessing">Preprocessing</a><ul>
-<li><a href="#seleksi-fitur">Seleksi Fitur</a><ul>
-<li><a href="#pearson-correlation">Pearson Correlation</a></li>
-<li><a href="#chi-square">Chi Square</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#procesing">Procesing</a><ul>
-<li><a href="#clustering">Clustering</a><ul>
-<li><a href="#k-means">K-Means</a></li>
-<li><a href="#fuzzy-c-means">Fuzzy C-Means</a></li>
-<li><a href="#shilhouette-coefisient">Shilhouette Coefisient</a></li>
-</ul>
-</li>
-<li><a href="#klasifikasi">Klasifikasi</a><ul>
-<li><a href="#naive-bayes">Naive Bayes</a></li>
-<li><a href="#akurasi">Akurasi</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#analisis">Analisis</a><ul>
-<li><a href="#tanpa-dilakukan-preprocessing">Tanpa dilakukan preprocessing</a></li>
-<li><a href="#berdasarkan-jumlah-cluster">Berdasarkan Jumlah Cluster</a></li>
-<li><a href="#berdasarkan-nilai-threshold">Berdasarkan nilai Threshold</a></li>
-<li><a href="#berdasarkan-n-gram">Berdasarkan N-Gram</a></li>
-<li><a href="#k-means_1">K-Means</a></li>
-<li><a href="#kesimpulan">Kesimpulan</a></li>
-</ul>
-</li>
-</ul>
-</div>
 <h1 id="pengantar">Pengantar</h1>
 <blockquote>
 <p>Ucapan terima kasih kepada Bapak <a href="https://forlap.ristekdikti.go.id/dosen/detail/RTA5QTg4RjctMjBEQy00QThELUI4REYtREQ5ODAzMzU0MjUz">Mulaab, S.Si., M.Kom.</a> selaku Dosen Pembimbing kami</p>
@@ -211,29 +161,29 @@
 
 <p><strong>Perlu diingat bahwa, setiap web memiliki struktur html yang berbeda</strong>, maka jika kalian mengubah url web, maka perlu dilakukan penyesuaian pada code.</p>
 <p>Selanjutnya, mari kita bahas lebih detail lagi. Untuk mendapatkan tag html .yang diinginkan BeautifulSoup menyediakan 2 fungsi, yaitu :</p>
-<ol>
+<ul>
 <li>soup.find(parameter)</li>
-</ol>
+</ul>
 <p>digunakan untuk mendapatkan <em>satu</em> tag html yang muncul pertama kali. Hasilnya berupa objek <code>soup</code></p>
-<ol>
+<ul>
 <li>soup.findAll(parameter)</li>
-</ol>
+</ul>
 <p>digunakan untuk mendapatkan <em>semua</em> tag html tersebut. Hasilnya berupa <code>list</code></p>
 <p>Sementara itu, untuk parameternya memiliki 3 macam. Kalian bisa mencari berdasarkan:</p>
-<ol>
+<ul>
 <li>tag html (seperti <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, <code>h1</code> dsb). </li>
-</ol>
+</ul>
 <p>contoh: </p>
 <p>code html <code>&lt;div&gt;&lt;p&gt;aku makan sayur&lt;/p&gt;&lt;/div&gt;</code></p>
 <p>maka, untuk mendapatkan tag p adalah : <code>soup.find("p")</code></p>
-<ol>
+<ul>
 <li>class</li>
-</ol>
+</ul>
 <p>code html <code>&lt;div&gt;&lt;p class='makan'&gt;aku makan sayur&lt;/p&gt;&lt;/div&gt;</code></p>
 <p>maka, untuk mendapatkan tag p adalah : <code>soup.find(class_='makan')</code></p>
-<ol>
+<ul>
 <li>id</li>
-</ol>
+</ul>
 <p>code html <code>&lt;div&gt;&lt;p id='sayur'&gt;aku makan sayur&lt;/p&gt;&lt;/div&gt;</code></p>
 <p>maka, untuk mendapatkan tag p adalah : <code>soup.find(id='sayur')</code></p>
 <p>Lalu, untuk mendapatkan textnya, digunakan <code>.getText()</code> pada objek BeautifulSoup.</p>
@@ -262,17 +212,17 @@
 <p>Kemudian, memasukkan ke dalam database. Sebelum itu, perlu dilakukan pengecekan apakah ada data yang sama. Karena hal itu bisa mengganggu hasil akhir nanti.</p>
 <h2 id="text-extraction">Text-Extraction</h2>
 <p>Pada tahap ini, text yang diambil akan dilakukan ekstraksi teks. Terdapat beberapa tahapan, yaitu:</p>
-<ol>
+<ul>
 <li>Stopword Removal, </li>
-</ol>
+</ul>
 <p>yaitu menghilangkan kata-kata dan tanda baca yang tidak penting, seperti "dan", "atau", "di", dsb.</p>
-<ol>
+<ul>
 <li>Stemming</li>
-</ol>
+</ul>
 <p>yaitu  mengubah suatu  kata menjadi kata dasar, seperti kata "menggunakan" menjadi "guna", "memakan" menajadi "makan".</p>
-<ol>
+<ul>
 <li>Tokenisasi (n-gram)</li>
-</ol>
+</ul>
 <p>yaitu memecah kalimat per kata, seperti "aku makan sayur", menjadi "aku", "makan", "sayur". Dalam tokenisasi ini, terdapat variasi jumlah kata yang dipecah. Misal dipecah menjadi 2 suku kata, seperti "aku makan sayur bayam", menjadi "aku makan", "makan sayur", "sayur bayam". Hal tersebut lebih dikenal sebagai <strong>n-gram</strong></p>
 <p>Ketiga tahapan di atas sudah saya pecah menjadi dua method berbeda seperti pada code di bawah. </p>
 <pre><code class="python">def preprosesing(txt):
@@ -458,14 +408,10 @@ bow = np.array(VSM[1:])
 </tr>
 </tbody>
 </table>
-<p>Setelah itu, kita lakukan invers pada setiap kata:
-$$
-IDF(kata) = 1 + \log(\frac{1}{1+DF(kata)})
-$$
-Setelah ketemu, maka tinggal kita kalikan TFxIDF. Berikut code programnya:
-$$
-TFIDF = TF \times IDF
-$$</p>
+<p>Setelah itu, kita lakukan invers pada setiap kata:</p>
+<p><img alt="rumus Shilhouette" src="../img/rumus_tfidf.PNG" /></p>
+<p>Setelah ketemu, maka tinggal kita kalikan TFxIDF. Berikut code programnya:</p>
+<p><img alt="rumus Shilhouette" src="../img/rumus_tfidf2.PNG" /></p>
 <pre><code class="python">df = list()
 total_doc = bow.shape[0]
 for kolom in range(len(bow[0])):
@@ -576,22 +522,12 @@ membership = np.argmax(u, axis=0)
 <p>Untuk setiap objek i, hitung rata-rata jarak dari objek i dengan  objek yang berada di cluster lainnya. Dari semua jarak rata-rata  tersebut ambil nilai yang paling kecil. Nilai ini disebut b<em>i</em>.</p>
 </li>
 <li>
-<p>Setelah itu maka untuk objek i memiliki nilai <em>silhoutte coefisien</em> :
-   $$
-   \mathbf{S}_i = \frac{(\mathbf{b}_i - \mathbf{a}_i)}{\max (\mathbf{a}_i, \mathbf{b}_i)}
-   $$</p>
+<p>Setelah itu maka untuk objek i memiliki nilai <em>silhoutte coefisien</em> :</p>
 </li>
 </ol>
+<p><img alt="rumus Shilhouette" src="../img/rumus_shilhouette.PNG" /></p>
 <p>Hasil perhitungan nilai silhoutte coeffisien dapat bervariasi antara -1 hingga 1. Hasil clustering dikatakan baik jikai nilai silhoutte coeffisien bernilai positif. Maka dapat dikatakan, jika s<em>i</em> = 1 berarti objek <em>i</em> sudah berada dalam cluster yang tepat. Jika nilai s<em>i</em> = 0 maka objek <em>i</em> berada di antara dua cluster sehingga objek tersebut tidak jelas harus dimasukan ke dalam cluster A atau cluster B. Akan tetapi, jika s<em>i</em> = -1 artinya struktur cluster yang dihasilkan overlapping, sehingga objek <em>i</em> lebih tepat dimasukan ke dalam cluster yang lain. </p>
 <p>Nilai rata-rata silhoutte coeffisien dari tiap objek dalam suatu cluster adalah suatu ukuran yang menunjukan seberapa ketat data dikelompokan dalam cluster tersebut.</p>
-<h3 id="klasifikasi">Klasifikasi</h3>
-<p>Berbeda dengan Clustering yang mengelompokkan data, klasifikasi lebih mirip pada peramalan data dengan merujuk kategori. Contoh simplenya, seperti peramalan golf. Jika cuaca cerah, angin tidak kencang, maka akan diadakan pertandingan golf. Jika cuaca cerah tapi angin kencang, maka pertandingan golf dibatalkan. </p>
-<p>Proses ini biasanya memerlukan data latih dan data test. Untuk menguji keberhasilannya, diperlukan untuk menghitung akurasi.</p>
-<p>Metode-metode yang sering dipakai untuk klasifikasi di antaranya Naive Bayes.</p>
-<h4 id="naive-bayes">Naive Bayes</h4>
-<h4 id="akurasi">Akurasi</h4>
-<p>Proses perhitungan akurasi sangat sederhana, yaitu, </p>
-<p>banyak_prediksi_yang_benar / banyak_data_yang_ditest</p>
 <h1 id="analisis">Analisis</h1>
 <p>Data yang digunakan merupakan data dari <a href="https://garuda.ristekdikti.go.id">Jurnal Online</a> berupa paper dari 9 jurnal berbeda, dengan masing-masing jurnal didapat 10 paper. Total data yang digunakan sebanyak 90 judul dan abstrak. </p>
 <p>Pada percobaan ini digunakan model Fuzzy C-Means, dengan percobaan cluster dilakukan berulang kali dengan mengubah nilai parameter, yaitu Threshold untuk Seleksi Fitur, Jumlah Cluster, serta banyak N-gram. Maka dihasilkan nilai Shilhouette Coeffisient sebagai Berikut:</p>
@@ -736,7 +672,7 @@ membership = np.argmax(u, axis=0)
 </tr>
 </tbody>
 </table>
-<h2 id="kesimpulan">Kesimpulan</h2>
+<h1 id="kesimpulan">Kesimpulan</h1>
 <p>Dari hasil percobaan di atas, dapat disimpulkan bahwa metode yang terbaik adalah K-Means, dengan parameter, n-gram=1, jumlah cluster=2, dan nilai Treshold=0.85.</p></div>
         </div>
 

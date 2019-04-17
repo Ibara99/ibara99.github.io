@@ -2,10 +2,6 @@
 
 ​	*Program ini digunakan untuk mengekstrak data dari sebuah website*
 
-# Table of Contents
-
-[TOC]
-
 # Pengantar
 
 > Ucapan terima kasih kepada Bapak [Mulaab, S.Si., M.Kom.](https://forlap.ristekdikti.go.id/dosen/detail/RTA5QTg4RjctMjBEQy00QThELUI4REYtREQ5ODAzMzU0MjUz) selaku Dosen Pembimbing kami
@@ -78,35 +74,37 @@ def crawl(src):
 
 Selanjutnya, mari kita bahas lebih detail lagi. Untuk mendapatkan tag html .yang diinginkan BeautifulSoup menyediakan 2 fungsi, yaitu :
 
-1. soup.find(parameter)
+* soup.find(parameter)
 
-   digunakan untuk mendapatkan *satu* tag html yang muncul pertama kali. Hasilnya berupa objek `soup`
+  digunakan untuk mendapatkan *satu* tag html yang muncul pertama kali. Hasilnya berupa objek `soup`
 
-2. soup.findAll(parameter)
+* soup.findAll(parameter)
 
-   digunakan untuk mendapatkan *semua* tag html tersebut. Hasilnya berupa `list`
+  digunakan untuk mendapatkan *semua* tag html tersebut. Hasilnya berupa `list`
 
 Sementara itu, untuk parameternya memiliki 3 macam. Kalian bisa mencari berdasarkan:
 
-1. tag html (seperti `<p>`, `<div>`, `h1` dsb). 
+* tag html (seperti `<p>`, `<div>`, `h1` dsb). 
 
-   contoh: 
+  contoh: 
 
-   code html `<div><p>aku makan sayur</p></div>`
+  code html `<div><p>aku makan sayur</p></div>`
 
-   maka, untuk mendapatkan tag p adalah : `soup.find("p")`
+  maka, untuk mendapatkan tag p adalah : `soup.find("p")`
 
-2. class
+* class
 
-   code html `<div><p class='makan'>aku makan sayur</p></div>`
+code html `<div><p class='makan'>aku makan sayur</p></div>`
 
-   maka, untuk mendapatkan tag p adalah : `soup.find(class_='makan')`
+maka, untuk mendapatkan tag p adalah : `soup.find(class_='makan')`
 
-3. id
+* id
 
-   code html `<div><p id='sayur'>aku makan sayur</p></div>`
+code html `<div><p id='sayur'>aku makan sayur</p></div>`
 
-   maka, untuk mendapatkan tag p adalah : `soup.find(id='sayur')`
+maka, untuk mendapatkan tag p adalah : `soup.find(id='sayur')`
+
+
 
 Lalu, untuk mendapatkan textnya, digunakan `.getText()` pada objek BeautifulSoup.
 
@@ -144,17 +142,17 @@ Kemudian, memasukkan ke dalam database. Sebelum itu, perlu dilakukan pengecekan 
 
 Pada tahap ini, text yang diambil akan dilakukan ekstraksi teks. Terdapat beberapa tahapan, yaitu:
 
-1. Stopword Removal, 
+* Stopword Removal, 
 
-   yaitu menghilangkan kata-kata dan tanda baca yang tidak penting, seperti "dan", "atau", "di", dsb.
+yaitu menghilangkan kata-kata dan tanda baca yang tidak penting, seperti "dan", "atau", "di", dsb.
 
-2. Stemming
+* Stemming
 
-   yaitu  mengubah suatu  kata menjadi kata dasar, seperti kata "menggunakan" menjadi "guna", "memakan" menajadi "makan".
+yaitu  mengubah suatu  kata menjadi kata dasar, seperti kata "menggunakan" menjadi "guna", "memakan" menajadi "makan".
 
-3. Tokenisasi (n-gram)
+* Tokenisasi (n-gram)
 
-   yaitu memecah kalimat per kata, seperti "aku makan sayur", menjadi "aku", "makan", "sayur". Dalam tokenisasi ini, terdapat variasi jumlah kata yang dipecah. Misal dipecah menjadi 2 suku kata, seperti "aku makan sayur bayam", menjadi "aku makan", "makan sayur", "sayur bayam". Hal tersebut lebih dikenal sebagai **n-gram**
+yaitu memecah kalimat per kata, seperti "aku makan sayur", menjadi "aku", "makan", "sayur". Dalam tokenisasi ini, terdapat variasi jumlah kata yang dipecah. Misal dipecah menjadi 2 suku kata, seperti "aku makan sayur bayam", menjadi "aku makan", "makan sayur", "sayur bayam". Hal tersebut lebih dikenal sebagai **n-gram**
 
 Ketiga tahapan di atas sudah saya pecah menjadi dua method berbeda seperti pada code di bawah. 
 
@@ -313,13 +311,12 @@ Maka, bisa kita ketahui:
 | terlihat | 1                                               |
 
 Setelah itu, kita lakukan invers pada setiap kata:
-$$
-IDF(kata) = 1 + \log(\frac{1}{1+DF(kata)})
-$$
+
+![rumus Shilhouette](.\img\rumus_tfidf.PNG)
+
 Setelah ketemu, maka tinggal kita kalikan TFxIDF. Berikut code programnya:
-$$
-TFIDF = TF \times IDF
-$$
+
+![rumus Shilhouette](.\img\rumus_tfidf2.PNG)
 
 ```python
 df = list()
@@ -457,31 +454,12 @@ Shilhouette Coefisient merupakan salah satu metode evaluasi yang digunakan untuk
 2. Untuk setiap objek i, hitung rata-rata jarak dari objek i dengan  objek yang berada di cluster lainnya. Dari semua jarak rata-rata  tersebut ambil nilai yang paling kecil. Nilai ini disebut b*i*.
 
 3. Setelah itu maka untuk objek i memiliki nilai *silhoutte coefisien* :
-   $$
-   \mathbf{S}_i = \frac{(\mathbf{b}_i - \mathbf{a}_i)}{\max (\mathbf{a}_i, \mathbf{b}_i)}
-   $$
+
+   ![rumus Shilhouette](.\img\rumus_shilhouette.PNG)
 
 Hasil perhitungan nilai silhoutte coeffisien dapat bervariasi antara -1 hingga 1. Hasil clustering dikatakan baik jikai nilai silhoutte coeffisien bernilai positif. Maka dapat dikatakan, jika s*i* = 1 berarti objek *i* sudah berada dalam cluster yang tepat. Jika nilai s*i* = 0 maka objek *i* berada di antara dua cluster sehingga objek tersebut tidak jelas harus dimasukan ke dalam cluster A atau cluster B. Akan tetapi, jika s*i* = -1 artinya struktur cluster yang dihasilkan overlapping, sehingga objek *i* lebih tepat dimasukan ke dalam cluster yang lain. 
 
 Nilai rata-rata silhoutte coeffisien dari tiap objek dalam suatu cluster adalah suatu ukuran yang menunjukan seberapa ketat data dikelompokan dalam cluster tersebut.
-
-### Klasifikasi 
-
-Berbeda dengan Clustering yang mengelompokkan data, klasifikasi lebih mirip pada peramalan data dengan merujuk kategori. Contoh simplenya, seperti peramalan golf. Jika cuaca cerah, angin tidak kencang, maka akan diadakan pertandingan golf. Jika cuaca cerah tapi angin kencang, maka pertandingan golf dibatalkan. 
-
-Proses ini biasanya memerlukan data latih dan data test. Untuk menguji keberhasilannya, diperlukan untuk menghitung akurasi.
-
-Metode-metode yang sering dipakai untuk klasifikasi di antaranya Naive Bayes.
-
-#### Naive Bayes
-
-
-
-#### Akurasi 
-
-Proses perhitungan akurasi sangat sederhana, yaitu, 
-
-banyak_prediksi_yang_benar / banyak_data_yang_ditest
 
 # Analisis
 
@@ -560,6 +538,6 @@ Parameter yang digunakan di antaranya, Jumlah Cluster = 2, Threshold = 0.85, dan
 | Fuzzy C-Means | 0.342                  |
 | K-Means       | 0.430                  |
 
-## Kesimpulan
+# Kesimpulan
 
 Dari hasil percobaan di atas, dapat disimpulkan bahwa metode yang terbaik adalah K-Means, dengan parameter, n-gram=1, jumlah cluster=2, dan nilai Treshold=0.85.
