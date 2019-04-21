@@ -1,6 +1,6 @@
 # Simple Web Crawler
 
-​	*Program ini digunakan untuk mengekstrak data dari sebuah website*
+​	*Program ini digunakan untuk mengekstrak data dari sebuah website. Untuk* source code *lengkap, sila klik [di sini](https://github.com/Ibara99/Simple-Web-Crawling).*
 
 # Pengantar
 
