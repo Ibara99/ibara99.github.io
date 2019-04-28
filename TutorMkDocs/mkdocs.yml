@@ -1,0 +1,9 @@
+site_name: Tutorial MkDocs-Material
+nav:
+  - Home: index.md
+theme:
+  name : 'material'
+repo_name: 'See repository'
+repo_url: 'https://github.com/ibara99/simple-web-crawling'
+markdown-extentions:
+  - footnotes

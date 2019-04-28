@@ -461,7 +461,7 @@ Hasil perhitungan nilai silhoutte coeffisien dapat bervariasi antara -1 hingga 1
 
 Nilai rata-rata silhoutte coeffisien dari tiap objek dalam suatu cluster adalah suatu ukuran yang menunjukan seberapa ketat data dikelompokan dalam cluster tersebut.
 
-# Analisis
+# Evaluasi
 
 Data yang digunakan merupakan data dari [Jurnal Online](https://garuda.ristekdikti.go.id) berupa paper dari 9 jurnal berbeda, dengan masing-masing jurnal didapat 10 paper. Total data yang digunakan sebanyak 90 judul dan abstrak. 
 

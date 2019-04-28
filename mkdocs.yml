@@ -1,7 +1,14 @@
 site_name: Ibara99 Doc
 nav:
   - Home: index.md
-  - My Project:
-    - Web Mining: Simple Web Crawler.md
-  - About Me: about.md
-  
+  - Crawling: crawling.md
+  - Text Extraction: textExtraction.md
+  - Preprocessing: preprocessing.md
+  - Clustering: Clustering.md
+  - Evaluasi: Evaluasi.md
+theme:
+  name : 'material'
+repo_name: 'See repository'
+repo_url: 'https://github.com/ibara99/simple-web-crawling'
+markdown-extentions:
+  - footnotes
