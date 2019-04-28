@@ -346,30 +346,30 @@
                 <p>Di sini saya akan menjelaskan tentang bagaimana menggunakan MkDocs serta bagaimana menguploadnya ke Githup Pages.</p>
 <h2 id="instalasi-mkdocs-dan-mkdocs-material">Instalasi MkDocs dan MkDocs material</h2>
 <p>Hal yang perlu dipersiapkan di sini adalah, pastikan kalian memiliki python. Lalu buka cmd (tekan Windows + R, lalu ketik cmd).</p>
-<p><img alt="img 1" src="./imgTutor/1.png" /></p>
+<p><img alt="img 1" src="../imgTutor/1.png" /></p>
 <p>Pastikan PC Anda terkoneksi dengan internet. Lalu lakukan hal berikut:</p>
 <ul>
 <li>Ketik <code>python -m pip install mkdocs</code></li>
 </ul>
-<p><img alt="img 2" src="./imgTutor/2.png" /></p>
+<p><img alt="img 2" src="../imgTutor/2.png" /></p>
 <ul>
 <li>Ketik <code>python -m pip install mkdocs</code>-material</li>
 </ul>
-<p><img alt="img 3" src="./imgTutor/3.png" /></p>
+<p><img alt="img 3" src="../imgTutor/3.png" /></p>
 <p>Selesai, Anda siap menggunakan MkDocs!</p>
 <h2 id="membuat-dokumentasi-menggunakan-mkdocs-material">Membuat Dokumentasi menggunakan MkDocs-material</h2>
 <p>Lakukan langkah-langkah di bawah ini:</p>
 <ul>
 <li>Buka CMD di direktori yang akan anda gunakan untuk membuat project MkDocs. Caranya, buka CMD seperti tadi, lalu ketik <code>cd Nama_Direktori</code>. Misalkan, Saya akan membuatnya di direktori <code>C:\Users\betsuni\Documents\GitHub\ibara99.github.io</code> maka command yang digunakan adalah sebagai berikut:</li>
 </ul>
-<p><img alt="Img 4" src="./imgTutor/4.png" /></p>
+<p><img alt="Img 4" src="../imgTutor/4.png" /></p>
 <ul>
 <li>Lalu ketikkan <code>python -m mkdocs new nama_folder</code> seperti berikut</li>
 </ul>
-<p><img alt="Img 5" src="./imgTutor/5.png" /></p>
+<p><img alt="Img 5" src="../imgTutor/5.png" /></p>
 <p>Maka akan muncul folder baru. Lalu pindah direktori cmd ke dalam folder tersebut dengan cara ketik <code>cd ./nama_folder</code>.</p>
-<p><img alt="Img 6" src="./imgTutor/6.png" /></p>
-<p><img alt="Img 8" src="./imgTutor/7.png" /></p>
+<p><img alt="Img 6" src="../imgTutor/6.png" /></p>
+<p><img alt="Img 8" src="../imgTutor/7.png" /></p>
 <ul>
 <li>Isi dari folder tersebut adalah sebagai berikut:</li>
 </ul>
@@ -377,11 +377,11 @@
 <ul>
 <li>Masukkan semua file yang ingin ditampilkan di halaman web ke folder <code>docs</code>.</li>
 </ul>
-<p><img alt="Img 8" src="./imgTutor/9.png" /></p>
+<p><img alt="Img 8" src="../imgTutor/9.png" /></p>
 <ul>
 <li>Kemudian buka file <code>mkdocs.yml</code> menggunakan text editor (NotePad atau yang lebih bagus, seperti Atom, dsb)</li>
 </ul>
-<p><img alt="Img 8" src="./imgTutor/10.png" /></p>
+<p><img alt="Img 8" src="../imgTutor/10.png" /></p>
 <p>ubah isi dari site_name menjadi nama website yang anda inginkan. Lalu tambahkan beberapa baris berikut:</p>
 <ul>
 <li>
@@ -390,29 +390,29 @@
 <ul>
 <li>Nama_yang_Ditampilkan: Nama_File</li>
 </ul>
-<p><img alt="Img 11" src="./imgTutor/11.png" /></p>
+<p><img alt="Img 11" src="../imgTutor/11.png" /></p>
 </li>
 <li>
 <p>Tambahkan baris theme berikut, yang berguna untuk menggunakan template material.</p>
-<p><img alt="Img 12" src="./imgTutor/12.png" /></p>
+<p><img alt="Img 12" src="../imgTutor/12.png" /></p>
 </li>
 <li>
 <p>Jika Anda ingin menambahkan link ke repository Anda, tambahkan juga baris <code>repo_name</code> dan <code>repo_url</code> </p>
 </li>
 <li>
 <p>Jika di dalam file <code>.md</code> anda menggunakan footnote, gunakan baris berikut:</p>
-<p><img alt="Img 13" src="./imgTutor/13.png" /></p>
+<p><img alt="Img 13" src="../imgTutor/13.png" /></p>
 </li>
 <li>
 <p>Keseluruhan file <code>mkdocs.yml</code> adalah sebagai berikut:</p>
 </li>
 </ul>
-<p><img alt="Img 14" src="./imgTutor/14.png" /></p>
+<p><img alt="Img 14" src="../imgTutor/14.png" /></p>
 <ul>
 <li>Kembali ke cmd Anda. Pastikan direktorinya berada di ./nama_file. Jika belum, lakukan langkah di atas. Jika sudah, lalu ketikkan perintah <code>python -m mkdocs serve</code>. Tunggu beberapa saat hingga muncul beberapa baris. Lalu buka web browser anda dan ketikkan url <code>localhost:8000</code>. </li>
 </ul>
-<p><img alt="Img 15" src="./imgTutor/15.png" /></p>
-<p><img alt="Img 16" src="./imgTutor/16.png" /></p>
+<p><img alt="Img 15" src="../imgTutor/15.png" /></p>
+<p><img alt="Img 16" src="../imgTutor/16.png" /></p>
 <ul>
 <li>
 <p>Anda tidak perlu mematikan cmd untuk mengubah file. Karena MkDocs akan dengan otomatis mengupdate tampilan apabila terdapat file yang berubah.</p>
