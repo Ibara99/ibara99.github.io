@@ -1,6 +1,6 @@
-Crawling merupakan sebuah kegiatan untuk mendapatkan sekelompok data dari web. Data-data tersebut bisa sangat bervariasi, seperti text, citra, audio, video dan lain sebagainya. Dalam program ini, kita akan melakukan crawling pada text, atau lebih dikenal dengan *text Mining*.
+Web  Crawler  adalah  sebuah  program  yang  melintasistruktur  hypertext  dari  web,  dimulai  dari  sebuah  alamatawal (yang disebut seed) dan secara sekursif mengunjungi alamat  web  di  dalam  halaman  web.   Web  Crawler  juga dikenal sebagai web robot, spider, worm, walker dan wanderer.  Semua search engine besar menggunakan crawleryang mampu melintasi internet secara terus-menerus, untuk  menemukan  dan  mengambil  halaman  web  sebanyakmungkin.  Data-data tersebut bisa sangat bervariasi, seperti text, citra, audio, video dan lain sebagainya. Dalam program ini, kita akan melakukan crawling pada text, atau lebih dikenal dengan *text Mining* .
 
-Berikut code untuk melakukan Crawling:
+Berikut code untuk melakukan Crawling[^1]:
 
 ```python
 def crawl(src):
@@ -96,3 +96,5 @@ Kemudian, untuk setiap paper, kita ambil judul (dengan class 'title-article'), p
 ```
 
 Kemudian, memasukkan ke dalam database. Sebelum itu, perlu dilakukan pengecekan apakah ada data yang sama. Karena hal itu bisa mengganggu hasil akhir nanti.
+
+[^1]:t
