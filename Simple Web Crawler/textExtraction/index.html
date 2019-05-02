@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#3f51b5">
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -102,7 +102,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="velvet">
   
     <svg class="md-svg">
       <defs>
@@ -199,7 +199,7 @@
 
   
 
-<a href="https://github.com/ibara99/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibara99/Simple-Web-Crawling" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -208,7 +208,7 @@
     </div>
   
   <div class="md-source__repository">
-    See My Repo
+    /ibara99/Simple-Web-Crawling
   </div>
 </a>
           </div>
@@ -276,7 +276,7 @@
 
   
 
-<a href="https://github.com/ibara99/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibara99/Simple-Web-Crawling" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -285,7 +285,7 @@
     </div>
   
   <div class="md-source__repository">
-    See My Repo
+    /ibara99/Simple-Web-Crawling
   </div>
 </a>
     </div>
@@ -469,8 +469,11 @@
 <li>Tokenisasi (n-gram)</li>
 </ul>
 <p>yaitu memecah kalimat per kata, seperti "aku makan sayur", menjadi "aku", "makan", "sayur". Dalam tokenisasi ini, terdapat variasi jumlah kata yang dipecah. Misal dipecah menjadi 2 suku kata, seperti "aku makan sayur bayam", menjadi "aku makan", "makan sayur", "sayur bayam". Hal tersebut lebih dikenal sebagai <strong>n-gram</strong><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
-<p>Ketiga tahapan di atas sudah saya pecah menjadi dua method berbeda seperti pada code di bawah. </p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">preprosesing</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+<p>Ketiga tahapan di atas sudah saya pecah menjadi dua method berbeda seperti pada code di bawah. Perlu diketahui, untuk memudahkan komputasi, code dibawah menggunakan library <strong>Sastrawi</strong> yang berfungsi untuk memproses text (seperti stopword dan stemming) khusus untuk bahasa indonesia. Jika text yang anda gunakan merupakan bahasa Inggris, maka bisa menggunakan Library <strong>nltk</strong>.</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Sastrawi.Stemmer.StemmerFactory</span> <span class="kn">import</span> <span class="n">StemmerFactory</span>
+<span class="kn">from</span> <span class="nn">Sastrawi.StopWordRemover.StopWordRemoverFactory</span> <span class="kn">import</span> <span class="n">StopWordRemoverFactory</span>
+
+<span class="k">def</span> <span class="nf">preprosesing</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
     <span class="n">SWfactory</span> <span class="o">=</span> <span class="n">StopWordRemoverFactory</span><span class="p">()</span>
     <span class="n">stopword</span> <span class="o">=</span> <span class="n">SWfactory</span><span class="o">.</span><span class="n">create_stop_word_remover</span><span class="p">()</span>
 
@@ -485,8 +488,67 @@
             <span class="n">hasil</span> <span class="o">+=</span> <span class="n">stem</span>  <span class="o">+</span> <span class="s1">&#39; &#39;</span>
     <span class="k">return</span> <span class="n">hasil</span>
 
-<span class="c1">#VSM</span>
 <span class="k">def</span> <span class="nf">tokenisasi</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">ngram</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">start</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">end</span><span class="o">=</span><span class="n">ngram</span>
+    <span class="n">txtSplit</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">end</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">txtSplit</span><span class="p">):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">txtSplit</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+        <span class="n">frase</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> 
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tmp</span><span class="p">:</span>
+            <span class="n">frase</span> <span class="o">+=</span> <span class="n">i</span><span class="o">+</span> <span class="s1">&#39; &#39;</span> 
+        <span class="n">token</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span>
+        <span class="n">end</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span> <span class="n">start</span> <span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">token</span>
+</pre></div>
+
+<p>Untuk penjelasan lebih detailnya sebagai berikut:</p>
+<p>Untuk melakukan Stopword pertama kita perlu menginisiasi StemmerFactory, dengan cara:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Sastrawi.StopWordRemover.StopWordRemoverFactory</span> <span class="kn">import</span> <span class="n">StopWordRemoverFactory</span>
+
+<span class="n">SWfactory</span> <span class="o">=</span> <span class="n">StopWordRemoverFactory</span><span class="p">()</span>
+<span class="n">stopword</span> <span class="o">=</span> <span class="n">SWfactory</span><span class="o">.</span><span class="n">create_stop_word_remover</span><span class="p">()</span>
+</pre></div>
+
+<p>Kemudian tinggal lakukan stemming dengan cara:</p>
+<div class="codehilite"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;ini adalah sebuah kalimat lengkap&#39;</span>
+<span class="n">hasil</span> <span class="o">=</span> <span class="n">stopword</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+<p>Untuk melakukan Stemming pertama kita perlu menginisiasi StemmerFactory, dengan cara:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Sastrawi.Stemmer.StemmerFactory</span> <span class="kn">import</span> <span class="n">StemmerFactory</span>
+<span class="kn">from</span> <span class="nn">Sastrawi.StopWordRemover.StopWordRemoverFactory</span> <span class="kn">import</span> <span class="n">StopWordRemoverFactory</span>
+
+<span class="n">Sfactory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">Sfactory</span><span class="o">.</span><span class="n">create_stemmer</span><span class="p">()</span>
+</pre></div>
+
+<p>Kemudian tinggal lakukan stemming dengan cara:</p>
+<div class="codehilite"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;ini adalah sebuah kalimat lengkap&#39;</span>
+<span class="n">hasil</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+<p>Namun, apabila dilakukan Stopword dan Stemming secara terpisah, masih ada kata yang tidak memiliki makna. Maka, digunakan ditambahkan sedikit pengecekan manual sebagai berikut:</p>
+<p><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Sastrawi.Stemmer.StemmerFactory</span> <span class="kn">import</span> <span class="n">StemmerFactory</span>
+<span class="kn">from</span> <span class="nn">Sastrawi.StopWordRemover.StopWordRemoverFactory</span> <span class="kn">import</span> <span class="n">StopWordRemoverFactory</span>
+
+<span class="k">def</span> <span class="nf">preprosesing</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="n">SWfactory</span> <span class="o">=</span> <span class="n">StopWordRemoverFactory</span><span class="p">()</span>
+    <span class="n">stopword</span> <span class="o">=</span> <span class="n">SWfactory</span><span class="o">.</span><span class="n">create_stop_word_remover</span><span class="p">()</span>
+    <span class="n">Sfactory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
+    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">Sfactory</span><span class="o">.</span><span class="n">create_stemmer</span><span class="p">()</span>
+    <span class="n">hasil</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">txt</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+            <span class="c1"># Menghilangkan Kata tidak penting</span>
+            <span class="n">stop</span> <span class="o">=</span> <span class="n">stopword</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">stem</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
+            <span class="n">hasil</span> <span class="o">+=</span> <span class="n">stem</span>  <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+    <span class="k">return</span> <span class="n">hasil</span>
+</pre></div>
+Lalu untuk melakukan tokenisasi, kita bisa menggunakan method String bawaan, yaitu <code>.split()</code>.  Kemudian kita akan membuat kondisi untuk melakukan n-gram, seperti berikut:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">tokenisasi</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">ngram</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">token</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">start</span><span class="o">=</span><span class="mi">0</span>
     <span class="n">end</span><span class="o">=</span><span class="n">ngram</span>
@@ -761,13 +823,7 @@
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
-      <a href="http://struct.cc" class="md-footer-social__link fa fa-globe"></a>
-    
-      <a href="https://github.com/squidfunk" class="md-footer-social__link fa fa-github-alt"></a>
-    
-      <a href="https://twitter.com/squidfunk" class="md-footer-social__link fa fa-twitter"></a>
-    
-      <a href="https://linkedin.com/in/squidfunk" class="md-footer-social__link fa fa-linkedin"></a>
+      <a href="https://github.com/ibara99" class="md-footer-social__link fa fa-github-alt"></a>
     
   </div>
 

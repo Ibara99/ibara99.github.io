@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#3f51b5">
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -102,7 +102,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="velvet">
   
     <svg class="md-svg">
       <defs>
@@ -199,7 +199,7 @@
 
   
 
-<a href="https://github.com/ibara99/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibara99/Simple-Web-Crawling" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -208,7 +208,7 @@
     </div>
   
   <div class="md-source__repository">
-    See My Repo
+    /ibara99/Simple-Web-Crawling
   </div>
 </a>
           </div>
@@ -276,7 +276,7 @@
 
   
 
-<a href="https://github.com/ibara99/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibara99/Simple-Web-Crawling" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -285,7 +285,7 @@
     </div>
   
   <div class="md-source__repository">
-    See My Repo
+    /ibara99/Simple-Web-Crawling
   </div>
 </a>
     </div>
@@ -419,6 +419,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#kesimpulan" title="Kesimpulan" class="md-nav__link">
+    Kesimpulan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code-dan-output" title="Source Code dan Output" class="md-nav__link">
+    Source Code dan Output
+  </a>
+  
+</li>
+      
       
       
       
@@ -485,6 +499,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#kesimpulan" title="Kesimpulan" class="md-nav__link">
+    Kesimpulan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code-dan-output" title="Source Code dan Output" class="md-nav__link">
+    Source Code dan Output
+  </a>
+  
+</li>
+      
       
       
       
@@ -504,7 +532,7 @@
                 
                 <h1 id="evaluasi">Evaluasi<a class="headerlink" href="#evaluasi" title="Permanent link">&para;</a></h1>
 <p>Data yang digunakan merupakan data dari <a href="https://garuda.ristekdikti.go.id">Jurnal Online</a> berupa paper dari 9 jurnal berbeda, dengan masing-masing jurnal didapat 10 paper. Total data yang digunakan sebanyak 90 judul dan abstrak. </p>
-<p>Pada percobaan ini digunakan model Fuzzy C-Means, dengan percobaan cluster dilakukan berulang kali dengan mengubah nilai parameter, yaitu Threshold untuk Seleksi Fitur, Jumlah Cluster, serta banyak N-gram. Maka dihasilkan nilai Shilhouette Coeffisient sebagai Berikut:</p>
+<p>Pada percobaan ini digunakan model Fuzzy C-Means, dengan percobaan cluster dilakukan berulang kali dengan mengubah nilai parameter, yaitu Threshold untuk Seleksi Fitur, Jumlah Cluster, serta banyak N-gram. Maka dihasilkan nilai Shilhouette Coeffisient sebagai Berikut:    </p>
 <h2 id="tanpa-dilakukan-preprocessing">Tanpa dilakukan preprocessing<a class="headerlink" href="#tanpa-dilakukan-preprocessing" title="Permanent link">&para;</a></h2>
 <p>Pada percobaan ini, data tidak dilakukan Seleksi Fitur apapun. Data langsung dibuat model Cluster menggunakan Fuzzy C-Means. Percobaan dilakukan beberapa kali dengan mengubah jumlah Cluster, dengan rentang 2-5.</p>
 <table>
@@ -646,8 +674,27 @@
 </tr>
 </tbody>
 </table>
-<h1 id="kesimpulan">Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permanent link">&para;</a></h1>
+<h2 id="kesimpulan">Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permanent link">&para;</a></h2>
 <p>Dari hasil percobaan di atas, dapat disimpulkan bahwa metode yang terbaik adalah K-Means, dengan parameter, n-gram=1, jumlah cluster=2, dan nilai Treshold=0.85.</p>
+<h2 id="source-code-dan-output">Source Code dan Output<a class="headerlink" href="#source-code-dan-output" title="Permanent link">&para;</a></h2>
+<p>Source code lengkap dapat dilihat di <a href="https://github.com/Ibara99/Simple-Web-Crawling/blob/master/web_crawl.py">sini</a>. Source code hanya berjalan dengan parameter: </p>
+<ul>
+<li>N-gram =&gt; input user saat running</li>
+<li>Nilai Threshold untuk Seleksi Fitur: {0.9, 0.8}</li>
+<li>Cluster =&gt; 3 Cluster</li>
+</ul>
+<blockquote>
+<p>Untuk melakukan pengujian diatas, dilakukan pengubahan parameter secara manual berkali-kali. </p>
+</blockquote>
+<p>Salah satu hasil running bisa dilihat di <a href="https://www.github.com/ibara99/Simple-Web-Crawling">repository</a> dengan tipe file <code>.csv</code>. Berikut detail outputnya:</p>
+<ul>
+<li>test.db =&gt; berisi data yang telah dicrawl (format: <strong>SQLite</strong>)</li>
+<li>bow_manual_1.csv =&gt; berisi hasil dari metode bag of word</li>
+<li>tfidf1.csv =&gt; berisi hasil dari metode tfidf</li>
+<li>seleksiFitur1.csv =&gt; berisi hasil dari metode Seleksi Fitur</li>
+<li>Cluster1.csv =&gt; berisi hasil dari Clustering tanpa dilakukan Seleksi Fitur</li>
+<li>Cluster1FS.csv =&gt; berisi hasil dari Clustering dengan dilakukan Seleksi Fitur</li>
+</ul>
                 
                   
                 
@@ -704,13 +751,7 @@
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
-      <a href="http://struct.cc" class="md-footer-social__link fa fa-globe"></a>
-    
-      <a href="https://github.com/squidfunk" class="md-footer-social__link fa fa-github-alt"></a>
-    
-      <a href="https://twitter.com/squidfunk" class="md-footer-social__link fa fa-twitter"></a>
-    
-      <a href="https://linkedin.com/in/squidfunk" class="md-footer-social__link fa fa-linkedin"></a>
+      <a href="https://github.com/ibara99" class="md-footer-social__link fa fa-github-alt"></a>
     
   </div>
 

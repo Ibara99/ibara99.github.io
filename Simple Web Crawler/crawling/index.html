@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#3f51b5">
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -102,7 +102,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="velvet">
   
     <svg class="md-svg">
       <defs>
@@ -195,7 +195,7 @@
 
   
 
-<a href="https://github.com/ibara99/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibara99/Simple-Web-Crawling" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -204,7 +204,7 @@
     </div>
   
   <div class="md-source__repository">
-    See My Repo
+    /ibara99/Simple-Web-Crawling
   </div>
 </a>
           </div>
@@ -272,7 +272,7 @@
 
   
 
-<a href="https://github.com/ibara99/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibara99/Simple-Web-Crawling" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -281,7 +281,7 @@
     </div>
   
   <div class="md-source__repository">
-    See My Repo
+    /ibara99/Simple-Web-Crawling
   </div>
 </a>
     </div>
@@ -382,9 +382,12 @@
                 
                   <h1>Crawling</h1>
                 
-                <p>Web  Crawler  adalah  sebuah  program  yang  melintasistruktur  hypertext  dari  web,  dimulai  dari  sebuah  alamatawal (yang disebut seed) dan secara sekursif mengunjungi alamat  web  di  dalam  halaman  web.   Web  Crawler  juga dikenal sebagai web robot, spider, worm, walker dan wanderer.  Semua search engine besar menggunakan crawleryang mampu melintasi internet secara terus-menerus, untuk  menemukan  dan  mengambil  halaman  web  sebanyakmungkin.  Data-data tersebut bisa sangat bervariasi, seperti text, citra, audio, video dan lain sebagainya. Dalam program ini, kita akan melakukan crawling pada text, atau lebih dikenal dengan <em>text Mining</em> .<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
-<p>Berikut code untuk melakukan Crawling:</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">crawl</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+                <p>Web  Crawler  adalah  sebuah  program  yang  melintasi struktur  hypertext  dari  web,  dimulai  dari  sebuah  alamat awal (yang disebut seed) dan secara sekursif mengunjungi alamat  web  di  dalam  halaman  web.   Web  Crawler  juga dikenal sebagai web robot, spider, worm, walker dan wanderer.  Semua search engine besar menggunakan crawler yang mampu melintasi internet secara terus-menerus, untuk  menemukan  dan  mengambil  halaman  web  sebanyak mungkin.  Data-data tersebut bisa sangat bervariasi, seperti text, citra, audio, video dan lain sebagainya. Dalam program ini, kita akan melakukan crawling pada text, atau lebih dikenal dengan <em>text Mining</em> .<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>Pada bahasa pemrograman Python, terdapat dua cara untuk melakukan WEb Crawling, yaitu menggunakan Library BeautifulSoup4 dan Library Requests, dan cara kedua menggunakan Library Scapy. Pada Contoh ini, kita akan menggunakan <strong>BeautifulSoup4</strong> dan <strong>Request</strong>. Berikut code untuk melakukan Crawling:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">crawl</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">c</span>
     <span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
 
@@ -542,13 +545,7 @@
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
-      <a href="http://struct.cc" class="md-footer-social__link fa fa-globe"></a>
-    
-      <a href="https://github.com/squidfunk" class="md-footer-social__link fa fa-github-alt"></a>
-    
-      <a href="https://twitter.com/squidfunk" class="md-footer-social__link fa fa-twitter"></a>
-    
-      <a href="https://linkedin.com/in/squidfunk" class="md-footer-social__link fa fa-linkedin"></a>
+      <a href="https://github.com/ibara99" class="md-footer-social__link fa fa-github-alt"></a>
     
   </div>
 

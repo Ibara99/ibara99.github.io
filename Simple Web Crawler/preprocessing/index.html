@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#3f51b5">
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -102,7 +102,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="velvet">
   
     <svg class="md-svg">
       <defs>
@@ -199,7 +199,7 @@
 
   
 
-<a href="https://github.com/ibara99/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibara99/Simple-Web-Crawling" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -208,7 +208,7 @@
     </div>
   
   <div class="md-source__repository">
-    See My Repo
+    /ibara99/Simple-Web-Crawling
   </div>
 </a>
           </div>
@@ -276,7 +276,7 @@
 
   
 
-<a href="https://github.com/ibara99/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibara99/Simple-Web-Crawling" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -285,7 +285,7 @@
     </div>
   
   <div class="md-source__repository">
-    See My Repo
+    /ibara99/Simple-Web-Crawling
   </div>
 </a>
     </div>
@@ -481,7 +481,7 @@
 <p>Selain itu, Seleksi Fitur juga memiliki banyak sekali metode-metode, seperti Information Gain, Chi Square, Pearson, dll.</p>
 <h4 id="pearson-correlation">Pearson Correlation<a class="headerlink" href="#pearson-correlation" title="Permanent link">&para;</a></h4>
 <p>Pendekatan Pearson merupakan pendekatan paling sederhana. Pada pendekatan ini, setiap fitur akan dihitung korelasinya. Berikut rumus untuk mencari korelasi Pearson<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>:</p>
-<p><img alt="Rumus Pearson Correlation" src="../img/rumus_pearson.png" /></p>
+<p><img alt="Rumus Pearson Correlation" src="../img/rumus_pearson.PNG" /></p>
 <p>Semakin tinggi nilainya, maka fitur tersebut semakin kuat korelasinya. Lalu fitur yang memiliki korelasi tinggi akan dibuang salah satunya.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
 <p><strong>Pendekatan ini digunakan untuk data tipe numerik</strong>.</p>
 <p>Codenya sebagai berikut:</p>
@@ -520,6 +520,14 @@
     <span class="k">return</span> <span class="n">data</span>
 </pre></div>
 
+<p>Untuk pemanggilan function di atas, kita hanya perlu memanggil function <code>seleksiFiturPearson()</code> dengan parameter data yang akan diseleksi (<strong>type data harus numpy array</strong>) dan batas nilai korelasi yang akan digunakan untuk membuang fitur yang mirip. Misalnya seperti ini:</p>
+<div class="codehilite"><pre><span></span><span class="c1">#Menentukan batas threshold</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">fiturBaru</span> <span class="o">=</span> <span class="n">seleksiFiturPearson</span><span class="p">(</span><span class="n">tfidf</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span>
+</pre></div>
+
+<p>Hasil output hanya berupa fitur-fitur yang telah diseleksi.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -604,13 +612,7 @@
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
-      <a href="http://struct.cc" class="md-footer-social__link fa fa-globe"></a>
-    
-      <a href="https://github.com/squidfunk" class="md-footer-social__link fa fa-github-alt"></a>
-    
-      <a href="https://twitter.com/squidfunk" class="md-footer-social__link fa fa-twitter"></a>
-    
-      <a href="https://linkedin.com/in/squidfunk" class="md-footer-social__link fa fa-linkedin"></a>
+      <a href="https://github.com/ibara99" class="md-footer-social__link fa fa-github-alt"></a>
     
   </div>
 

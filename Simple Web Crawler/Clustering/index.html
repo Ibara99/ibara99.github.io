@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#3f51b5">
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -102,7 +102,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="velvet">
   
     <svg class="md-svg">
       <defs>
@@ -199,7 +199,7 @@
 
   
 
-<a href="https://github.com/ibara99/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibara99/Simple-Web-Crawling" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -208,7 +208,7 @@
     </div>
   
   <div class="md-source__repository">
-    See My Repo
+    /ibara99/Simple-Web-Crawling
   </div>
 </a>
           </div>
@@ -276,7 +276,7 @@
 
   
 
-<a href="https://github.com/ibara99/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibara99/Simple-Web-Crawling" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -285,7 +285,7 @@
     </div>
   
   <div class="md-source__repository">
-    See My Repo
+    /ibara99/Simple-Web-Crawling
   </div>
 </a>
     </div>
@@ -482,22 +482,24 @@
 </li>
 <li>
 <p>Menggunakan jarak euclidean kemudian hitung setiap data ke pusat cluster
-  <img alt="img rumus euclid" src="../img/rumus_euclidean.png" /></p>
+  <img alt="img rumus euclid" src="../img/rumus_euclidean.PNG" /></p>
 </li>
 <li>
 <p>Kelompokkan data ke dalam cluster dengan jarak yang paling pendek dengan persamaan
-  <img alt="rumus minimal" src="../img/rumus_minimal.png" /></p>
+  <img alt="rumus minimal" src="../img/rumus_minimal.PNG" /></p>
 </li>
 <li>
 <p>Hitung pusat cluster yang baru menggunakan persamaan</p>
 </li>
 </ul>
-<p><img alt="rumus pusat cluster" src="../img/rumus_pusat_cluster.png" /></p>
+<p><img alt="rumus pusat cluster" src="../img/rumus_pusat_cluster.PNG" /></p>
 <p>Dengan : Xij Kluster ke k p = banyaknya anggota kluster ke - k</p>
 <ul>
 <li>Ulangi langkah dua sampai dengan empat sehingga sudah tidak ada lagi data yang berpindah ke kluster yang lain</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="c1"># Clustering</span>
+<p>Di sini kita akan menggunakan Library <strong>scikit-learn</strong> untuk memudahkan. Berikut codenya:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="c1"># Clustering</span>
 <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">todense</span><span class="p">())</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)):</span>
@@ -509,8 +511,9 @@
 <p>Konsep dasar <em>Metode C-Means Clustering</em>  yaitu untuk menentukan 
 pusat cluster. yang akan menandai lokasi untuk setiap cluster, dengan 
 cara memperbaiki pusat cluster sehingga terbentuk suatu cluster baru.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
-<p>Untuk melihat perhitungan manualnya, silakan klik <a href="http://contohprogram.com/fuzzy-c-means.xls">di sini</a></p>
-<div class="codehilite"><pre><span></span><span class="n">cntr</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">u0</span><span class="p">,</span> <span class="n">distant</span><span class="p">,</span> <span class="n">fObj</span><span class="p">,</span> <span class="n">iterasi</span><span class="p">,</span> <span class="n">fpc</span> <span class="o">=</span> <span class="n">fuzz</span><span class="o">.</span><span class="n">cmeans</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.00001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<p>Untuk melihat perhitungan manualnya, silakan klik <a href="http://contohprogram.com/fuzzy-c-means.xls">di sini</a>. Berikut merupakan code untuk melakukan Fuzzy C-Means menggunakan Library <strong>scikit-fuzzy</strong></p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">skfuzzy</span> <span class="kn">as</span> <span class="nn">fuzz</span>
+<span class="n">cntr</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">u0</span><span class="p">,</span> <span class="n">distant</span><span class="p">,</span> <span class="n">fObj</span><span class="p">,</span> <span class="n">iterasi</span><span class="p">,</span> <span class="n">fpc</span> <span class="o">=</span> <span class="n">fuzz</span><span class="o">.</span><span class="n">cmeans</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.00001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">membership</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
@@ -531,8 +534,9 @@ cara memperbaiki pusat cluster sehingga terbentuk suatu cluster baru.<sup id="fn
 <p><img alt="rumus Shilhouette" src="../img/rumus_shilhouette.PNG" /></p>
 <p>Hasil perhitungan nilai silhoutte coeffisien dapat bervariasi antara -1 hingga 1. Hasil clustering dikatakan baik jikai nilai silhoutte coeffisien bernilai positif. Maka dapat dikatakan, jika s*i* = 1 berarti objek <em>i</em> sudah berada dalam cluster yang tepat. Jika nilai s*i* = 0 maka objek <em>i</em> berada di antara dua cluster sehingga objek tersebut tidak jelas harus dimasukan ke dalam cluster A atau cluster B. Akan tetapi, jika s*i* = -1 artinya struktur cluster yang dihasilkan overlapping, sehingga objek <em>i</em> lebih tepat dimasukan ke dalam cluster yang lain. </p>
 <p>Nilai rata-rata silhoutte coeffisien dari tiap objek dalam suatu cluster adalah suatu ukuran yang menunjukan seberapa ketat data dikelompokan dalam cluster tersebut.</p>
-<p>Sourcode untuk Shilhouette adalah sebagai berikut:</p>
-<div class="codehilite"><pre><span></span><span class="n">s_avg</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">xBaru2</span><span class="p">,</span> <span class="n">membership</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<p>Sourcecode untuk Shilhouette menggunakan Library <strong>scikit-learn</strong> adalah sebagai berikut:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_score</span>
+<span class="n">s_avg</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">xBaru2</span><span class="p">,</span> <span class="n">membership</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
 <p>dengan parameter berturut-turut: data, hasil_cluster, dan random_state.</p>
@@ -620,13 +624,7 @@ cara memperbaiki pusat cluster sehingga terbentuk suatu cluster baru.<sup id="fn
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
-      <a href="http://struct.cc" class="md-footer-social__link fa fa-globe"></a>
-    
-      <a href="https://github.com/squidfunk" class="md-footer-social__link fa fa-github-alt"></a>
-    
-      <a href="https://twitter.com/squidfunk" class="md-footer-social__link fa fa-twitter"></a>
-    
-      <a href="https://linkedin.com/in/squidfunk" class="md-footer-social__link fa fa-linkedin"></a>
+      <a href="https://github.com/ibara99" class="md-footer-social__link fa fa-github-alt"></a>
     
   </div>
 
