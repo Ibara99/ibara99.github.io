@@ -225,14 +225,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href=".." title="Home" class="md-tabs__link md-tabs__link--active">
+      <a href=".." title="Home" class="md-tabs__link">
         Home
       </a>
     
@@ -240,14 +242,30 @@
 
       
         
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../crawling/" title="Web Content Mining" class="md-tabs__link md-tabs__link--active">
+          Web Content Mining
+        </a>
+      
+    </li>
+  
+
       
         
+  
+  
+    <li class="md-tabs__item">
       
-        
+        <a href="../Web Structure Mining/" title="Web Structure Mining" class="md-tabs__link">
+          Web Structure Mining
+        </a>
       
-        
-      
-        
+    </li>
+  
+
       
     </ul>
   </div>
@@ -308,6 +326,27 @@
       
       
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Web Content Mining
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Web Content Mining
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
     <a href="../crawling/" title="Crawling" class="md-nav__link">
@@ -315,10 +354,10 @@
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
   
 
@@ -368,10 +407,10 @@
     
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
@@ -380,10 +419,10 @@
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
@@ -392,16 +431,93 @@
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
     <a href="../Evaluasi/" title="Evaluasi" class="md-nav__link">
       Evaluasi
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Web Structure Mining
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Web Structure Mining
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Web Structure Mining/" title="Web Structure Mining" class="md-nav__link">
+      Web Structure Mining
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Graph/" title="Graph" class="md-nav__link">
+      Graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Page Rank/" title="PageRank" class="md-nav__link">
+      PageRank
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../referensi2/" title="Referensi" class="md-nav__link">
+      Referensi
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -714,9 +830,18 @@ Lalu untuk melakukan tokenisasi, kita bisa menggunakan method String bawaan, yai
 </tbody>
 </table>
 <p>Setelah itu, kita lakukan invers pada setiap kata:</p>
-<p><img alt="rumus Shilhouette" src="../img/rumus_tfidf.PNG" /></p>
-<p>Setelah ketemu, maka tinggal kita kalikan TFxIDF. Berikut code programnya:</p>
-<p><img alt="rumus Shilhouette" src="../img/rumus_tfidf2.PNG" /></p>
+<p>$$
+I D F(k a t a)=1+\log \left(\frac{1}{1+D F(k a t a)}\right)
+$$
+Setelah ketemu, maka tinggal kita kalikan TFxIDF. Berikut code programnya:</p>
+<div>
+<div class="MathJax_Preview">
+T F I D F=T F \times I D F
+</div>
+<script type="math/tex; mode=display">
+T F I D F=T F \times I D F
+</script>
+</div>
 <div class="codehilite"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 <span class="n">total_doc</span> <span class="o">=</span> <span class="n">bow</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">kolom</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bow</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
@@ -836,6 +961,8 @@ Lalu untuk melakukan tokenisasi, kita bisa menggunakan method String bawaan, yai
       <script src="../assets/javascripts/application.8c0d971c.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>
